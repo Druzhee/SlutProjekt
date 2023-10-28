@@ -1,0 +1,27 @@
+﻿<Window x:Class="SlutProjekt.TravelsWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:SlutProjekt"
+        mc:Ignorable="d"
+        Title="TravelsWindow" Height="450" Width="600" Background="MediumSlateBlue" ResizeMode="NoResize" >
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="70"/>
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        <!-- Button -->
+        <StackPanel Grid.Row="0" Orientation="Horizontal" HorizontalAlignment="Center">
+            <Button Content="Info" Width="100" Margin="5" Name="btnInfo" Click="btnInfo_Click"  />
+            <Button Content="Add Travel" Width="100" Margin="5" Name="btnAddTravel" Click="btnAddTravel_Click" />
+            <Button Content="Details" Width="100" Margin="5" Name="btnTravelDetails" Click="btnTravelDetails_Click" />
+            <Button Content="Remove" Width="100" Margin="5" Name="btnRemoveTravel" Click="btnRemoveTravel_Click"/>
+            <Button Content="Sign Out" Width="100" Margin="5" Name="btnSignOut" Click="btnSignOut_Click"/>
+        </StackPanel>
+
+        <!-- Lista för att visa resor -->
+        <ListView Grid.Row="1" Name="travelListView" Background="MediumSlateBlue">
+        </ListView>
+    </Grid>
+</Window>

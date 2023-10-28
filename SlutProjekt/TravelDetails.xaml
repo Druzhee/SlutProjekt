@@ -1,0 +1,20 @@
+﻿<Window x:Class="SlutProjekt.TravelDetails"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:SlutProjekt"
+        mc:Ignorable="d"
+         Title="Travel Details" Height="350" Width="450" Background="MediumSlateBlue" ResizeMode="NoResize" >
+    <Grid>
+        <StackPanel Margin="20">
+            <TextBox Text="City:" Name="txtCity" IsReadOnly="True" Margin="0 10 0 10"/>
+            <TextBox Text="Destination:" Name="txtDestinationCountry" IsReadOnly="True" Margin="0 10 0 10"/>
+            <TextBox Text="Number of Travelers:" Name="txtNumberOfTravelers" IsReadOnly="True" Margin="0 10 0 10"/>
+            <CheckBox Name="IsWorkTrip" IsEnabled="False" Content="Work Trip" Margin="0 10 0 10"/>
+            <CheckBox Name="IsVacationCheckBox" IsEnabled="False" Content="Vacation" Margin="0 10 0 10"/>
+            <TextBox Name="txtMeetingDetails" IsReadOnly="True" Margin="0 10 0 10"/>
+            <CheckBox Name="IsAllInclusive" IsEnabled="False" Content="All Inclusive" Margin="0 10 0 10"/>
+        </StackPanel>
+    </Grid>
+</Window>

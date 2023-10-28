@@ -18,10 +18,22 @@ namespace SlutProjekt
     /// Interaction logic for TravelDetails.xaml
     /// </summary>
     public partial class TravelDetails : Window
-    {
+    {      
         public TravelDetails()
         {
             InitializeComponent();
+        }
+
+        private void txtNumberOfTravelers_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            //txtNumberOfTravelers.Text = number.ToString(); // fråga om hur man sparar värdet på.
+        }
+
+        private void btnGoBackToMainWindow_Click(object sender, RoutedEventArgs e)
+        {
+            TravelsWindow travelsWindow = new TravelsWindow();
+            travelsWindow.Show();
+            Close();
         }
     }
 }

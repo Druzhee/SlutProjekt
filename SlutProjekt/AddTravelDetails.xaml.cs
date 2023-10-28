@@ -19,15 +19,39 @@ namespace SlutProjekt
             Close();
         }
 
+        private void CmboLand_SelectionChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
+        {
+
+        }
+
+        private void CmboMeetingDetails_SelectionChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
+        {
+
+        }
+
         private void CmboTravelers_SelectionChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
         {
-            CmboTravelers.Items.Clear();
+            object selectedItem = CmboTravelers.SelectedItem;
+            
+        }
 
-            // Add numbers from 1 to 9 to the ComboBox
-            for (int i = 1; i <= 11; i++)
+        private void btnAddToTravelList_Click(object sender, RoutedEventArgs e)
+        {
+            bool City  = txtCity.Text.Trim().Length > 0;
+            bool Travelers = CmboTravelers.SelectedItem != null;
+            bool Land = CmboLand .SelectedItem != null;
+            bool Meetingdetails = CmboMeetingDetails.SelectedItem != null;
+            if (City && Travelers && Land && Meetingdetails )
             {
-                CmboTravelers.Items.Add(i);
+                TravelsWindow travelsWindow = new();
+                travelsWindow.Show();   
+                Close();
             }
+            else
+            {
+                MessageBox.Show("incompleted form","Warning");
+            }
+            
 
         }
     }

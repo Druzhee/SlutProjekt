@@ -87,6 +87,19 @@ namespace SlutProjekt
             }
             return false;
         }
+
+        //public static List<Travel> GetAllTravels()
+        //{
+        //    foreach(var user in Users)
+        //    {
+        //        user.
+        //    }
+        //    return null;
+        //}
+
+       
+
+
     }
 
 }

@@ -21,7 +21,7 @@ namespace SlutProjekt
         }
 
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void btnReg_Click(object sender, RoutedEventArgs e)
         {
             string Username = txtRegUsername.Text;
             string Password = txtRegPassword.Password;
@@ -42,5 +42,7 @@ namespace SlutProjekt
                 MessageBox.Show("Failed to register a new user. Username might already be taken.", "Warning!");
             }
         }
+
+       
     }
 }

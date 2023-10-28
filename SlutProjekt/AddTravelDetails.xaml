@@ -30,18 +30,32 @@
         <TextBlock Grid.Row="3" Grid.Column="0" Text="Meeting details" FontSize="18" FontFamily="Arial" VerticalAlignment="Center" />
         <TextBlock Grid.Row="4" Grid.Column="4" Text="Meeting Detaíls " FontSize="15" FontFamily="Arial" VerticalAlignment="Center" Visibility="Hidden"/>
 
-        <TextBox Grid.Row="0" Grid.Column="1" FontFamily="Arial"  Margin="0 15 0 15 "/>
+        <TextBox Grid.Row="0" Grid.Column="1" FontFamily="Arial"  Margin="0 15 0 15 " Name="txtCity"/>
 
-        <ComboBox Grid.Row="2" Grid.Column="1" Margin="10 15 10 15" Name="CmboLand"  />
-        <ComboBox Grid.Row="3" Grid.Column="1" Margin="10 15 10 15" Name="CmboMeetingDetails" />
-        <ComboBox Grid.Column="1" Grid.Row="1" Margin="10 15 10 15" Name="CmboTravelers" SelectionChanged="CmboTravelers_SelectionChanged" />
+        <ComboBox Grid.Row="2" Grid.Column="1" Margin="10 15 10 15" Name="CmboLand" SelectionChanged="CmboLand_SelectionChanged"  />
+        <ComboBox Grid.Row="3" Grid.Column="1" Margin="10 15 10 15" Name="CmboMeetingDetails" SelectionChanged="CmboMeetingDetails_SelectionChanged" />
+        <ComboBox Grid.Column="1" Grid.Row="1" Margin="10 15 10 15" Name="CmboTravelers" SelectionChanged="CmboTravelers_SelectionChanged">
+            <ComboBox.Items>
+                <ComboBoxItem Tag="1">1</ComboBoxItem>
+                <ComboBoxItem Tag="2">2</ComboBoxItem>
+                <ComboBoxItem Tag="3">3</ComboBoxItem>
+                <ComboBoxItem Tag="4">4</ComboBoxItem>
+                <ComboBoxItem Tag="5">5</ComboBoxItem>
+                <ComboBoxItem Tag="6">6</ComboBoxItem>
+                <ComboBoxItem Tag="7">7</ComboBoxItem>
+                <ComboBoxItem Tag="8">8</ComboBoxItem>
+                <ComboBoxItem Tag="9">9</ComboBoxItem>
+                <ComboBoxItem Tag="10">10</ComboBoxItem>
+            </ComboBox.Items>
+        
+        </ComboBox> 
 
         <CheckBox Grid.Row="3" Grid.Column="4" Content="All inclusive" FontSize="15" FontFamily="Arial" Visibility="Hidden" />
 
 
 
         <Button Grid.Column="0" Grid.Row="6" Foreground="White" Background="Gray" Content="Go Back" FontFamily="Arial" FontSize="15" Name="btnGoBack" Click="btnGoBack_Click" />
-        <Button Grid.Column="5" Grid.Row="6" Foreground="White" Background="Black" Content="Add" FontFamily="Arial" FontSize="15" Name="btnAddToTravelList" />
+        <Button Grid.Column="5" Grid.Row="6" Foreground="White" Background="Black" Content="Add" FontFamily="Arial" FontSize="15" Name="btnAddToTravelList" Click="btnAddToTravelList_Click"  />
 
 
 

@@ -22,13 +22,13 @@
 
         <!--TextBoxar-->
         <PasswordBox VerticalAlignment="Top" Margin="0 122 280 0" Grid.Row="0" Name="txtRegPassword" />
-        <TextBox VerticalAlignment="Top" Grid.Row="0" Margin="0 22 280 0"  Name="txtRegUsername"  />
+        <TextBox VerticalAlignment="Top" Grid.Row="0" Margin="0 22 280 0"  Name="txtRegUsername"   />
 
         <!--comboBox-->
         <ComboBox VerticalAlignment="Top" Margin="0,50,280,0" Grid.Row="1" Name="txtChooseACountry" />
 
         <!--button-->
-        <Button VerticalAlignment="Bottom" Margin="280,0,0,0" Height="35" Content="Creat" Foreground="White" Background="Black" Grid.Row="1" Click="Button_Click" />
+        <Button VerticalAlignment="Bottom" Margin="280,0,0,0" Height="35" Content="Creat" Foreground="White" Background="Black" Grid.Row="1" Name="btnReg" Click="btnReg_Click" />
         <Button  Name="GoBack" Content="Go Back" HorizontalAlignment="Left" Grid.Row="1" VerticalAlignment="Bottom" Foreground="White" Background="Gray" Height="30" Width="60" Click="GoBack_Click"  />
 
 

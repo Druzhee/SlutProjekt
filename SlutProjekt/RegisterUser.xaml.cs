@@ -1,4 +1,6 @@
-﻿using System.Windows;
+﻿using SlutProjekt.Enums;
+using System;
+using System.Windows;
 
 namespace SlutProjekt
 {
@@ -43,6 +45,13 @@ namespace SlutProjekt
             }
         }
 
-       
+        private void txtChooseACountry_SelectionChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
+        {
+
+            foreach (Country country in Enum.GetValues(typeof(Country)))
+            {
+                txtChooseACountry.Items.Add(country);
+            }
+        }
     }
 }

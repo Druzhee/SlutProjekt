@@ -1,4 +1,6 @@
-﻿using System.Windows;
+﻿using SlutProjekt.Enums;
+using System;
+using System.Windows;
 
 namespace SlutProjekt
 {
@@ -10,6 +12,13 @@ namespace SlutProjekt
         public AddTravelDetails()
         {
             InitializeComponent();
+            CmboTypeOfTrip.Items.Add("Work Trip");
+            CmboTypeOfTrip.Items.Add("Vacation");
+
+            foreach (Country country in Enum.GetValues(typeof(Country)))
+            {
+                CmboLand.Items.Add(country);
+            }
         }
 
         private void btnGoBack_Click(object sender, RoutedEventArgs e)
@@ -19,39 +28,52 @@ namespace SlutProjekt
             Close();
         }
 
-        private void CmboLand_SelectionChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
-        {
 
-        }
 
         private void CmboMeetingDetails_SelectionChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
         {
+            if (CmboTypeOfTrip.SelectedItem == "Work Trip")
+            {
+                txtMeetingdetalis.Visibility = Visibility.Visible;
+                ALLInclusive.Visibility = Visibility.Hidden;
+
+
+            }
+            else if (CmboTypeOfTrip.SelectedItem == "Vacation")
+            {
+                ALLInclusive.Visibility = Visibility.Visible;
+                txtMeetingdetalis.Visibility = Visibility.Hidden;
+
+
+            }
 
         }
 
         private void CmboTravelers_SelectionChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
         {
             object selectedItem = CmboTravelers.SelectedItem;
-            
+
         }
 
         private void btnAddToTravelList_Click(object sender, RoutedEventArgs e)
         {
-            bool City  = txtCity.Text.Trim().Length > 0;
+            bool City = txtCity.Text.Trim().Length > 0;
             bool Travelers = CmboTravelers.SelectedItem != null;
-            bool Land = CmboLand .SelectedItem != null;
-            bool Meetingdetails = CmboMeetingDetails.SelectedItem != null;
-            if (City && Travelers && Land && Meetingdetails )
+            bool Land = CmboLand.SelectedItem != null;
+            bool TypOfTrip = CmboTypeOfTrip.SelectedItem != null;
+
+            if (City && Travelers && Land && TypOfTrip)
             {
+                Country selectedCountry = (Country)CmboLand.SelectedItem;
                 TravelsWindow travelsWindow = new();
-                travelsWindow.Show();   
+                travelsWindow.Show();
                 Close();
             }
             else
             {
-                MessageBox.Show("incompleted form","Warning");
+                MessageBox.Show("incompleted form", "Warning");
             }
-            
+
 
         }
     }

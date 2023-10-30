@@ -9,7 +9,7 @@
     <Grid>
         <StackPanel Margin="20,10,20,10">
             <TextBox Text="City:" Name="txtCity" IsReadOnly="True" Margin="0 10 0 10"/>
-            <TextBox Text="Destination:" Name="txtDestinationCountry" IsReadOnly="True" Margin="0 10 0 10"/>
+            <TextBox Text="Country:" Name="txtCountry" IsReadOnly="True" Margin="0 10 0 10"/>
             <TextBox Text="Number of Travelers:" Name="txtNumberOfTravelers" IsReadOnly="True" Margin="0 10 0 10" TextChanged="txtNumberOfTravelers_TextChanged"  />
             <CheckBox Name="IsWorkTrip" IsEnabled="False" Content="Work Trip" Margin="0 10 0 10"/>
             <CheckBox Name="IsVacationCheckBox" IsEnabled="False" Content="Vacation" Margin="0 10 0 10"/>

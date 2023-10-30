@@ -6,19 +6,17 @@ namespace SlutProjekt
     {
         public static List<IUser> Users { get; set; } = new()
         {
-            new Admin("admin", "password")
-            {
 
-            },
+            new Admin("admin", "password"),
             new User("user", "password")
             {
                 Travels = new List<Travel>()
                 {
-                    new Vacation(true, 2, "Krakow")
+                    new Vacation(true, 2, "Krakow", Enums.Country.Poland)
                     {
 
                     },
-                    new WorkTrip("Speak to John", 2, "Paris")
+                    new WorkTrip("Speak to John", 2, "Paris", Enums.Country.France)
                     {
 
                     }
@@ -87,19 +85,6 @@ namespace SlutProjekt
             }
             return false;
         }
-
-        //public static List<Travel> GetAllTravels()
-        //{
-        //    foreach(var user in Users)
-        //    {
-        //        user.
-        //    }
-        //    return null;
-        //}
-
-       
-
-
     }
 
 }

@@ -27,13 +27,13 @@
         <TextBlock Grid.Row="0" Grid.Column="0" Text="City" FontSize="30" FontFamily="Arial" VerticalAlignment="Center" />
         <TextBlock Grid.Row="1" Grid.Column="0" Text="Travelers" FontSize="30" FontFamily="Arial" VerticalAlignment="Center" />
         <TextBlock Grid.Row="2" Grid.Column="0" Text="Land" FontSize="30" FontFamily="Arial" VerticalAlignment="Center" />
-        <TextBlock Grid.Row="3" Grid.Column="0" Text="Meeting details" FontSize="18" FontFamily="Arial" VerticalAlignment="Center" />
-        <TextBlock Grid.Row="4" Grid.Column="4" Text="Meeting Detaíls " FontSize="15" FontFamily="Arial" VerticalAlignment="Center" Visibility="Hidden"/>
+        <TextBlock Grid.Row="3" Grid.Column="0" Text="TypeOfTrip" FontSize="18" FontFamily="Arial" VerticalAlignment="Center" />
+        <TextBox Grid.Row="4" Grid.Column="4" Text="Meeting Detaíls " FontSize="15" FontFamily="Arial" VerticalAlignment="Center" Visibility="Hidden" Name="txtMeetingdetalis"/>
 
-        <TextBox Grid.Row="0" Grid.Column="1" FontFamily="Arial"  Margin="0 15 0 15 " Name="txtCity"/>
+        <TextBox Grid.Row="0" Grid.Column="1" FontFamily="Arial"  Margin="0 15 0 15 " Name="txtCity" VerticalContentAlignment="Center"/>
 
-        <ComboBox Grid.Row="2" Grid.Column="1" Margin="10 15 10 15" Name="CmboLand" SelectionChanged="CmboLand_SelectionChanged"  />
-        <ComboBox Grid.Row="3" Grid.Column="1" Margin="10 15 10 15" Name="CmboMeetingDetails" SelectionChanged="CmboMeetingDetails_SelectionChanged" />
+        <ComboBox Grid.Row="2" Grid.Column="1" Margin="10 15 10 15" Name="CmboLand"  />
+        <ComboBox Grid.Row="3" Grid.Column="1" Margin="10 15 10 15" Name="CmboTypeOfTrip" SelectionChanged="CmboMeetingDetails_SelectionChanged" />
         <ComboBox Grid.Column="1" Grid.Row="1" Margin="10 15 10 15" Name="CmboTravelers" SelectionChanged="CmboTravelers_SelectionChanged">
             <ComboBox.Items>
                 <ComboBoxItem Tag="1">1</ComboBoxItem>
@@ -50,7 +50,7 @@
         
         </ComboBox> 
 
-        <CheckBox Grid.Row="3" Grid.Column="4" Content="All inclusive" FontSize="15" FontFamily="Arial" Visibility="Hidden" />
+        <CheckBox Grid.Row="3" Grid.Column="4" Content="All inclusive" FontSize="15" FontFamily="Arial" Visibility="Hidden" Name="ALLInclusive" />
 
 
 

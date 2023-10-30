@@ -25,7 +25,7 @@
         <TextBox VerticalAlignment="Top" Grid.Row="0" Margin="0 22 280 0"  Name="txtRegUsername"   />
 
         <!--comboBox-->
-        <ComboBox VerticalAlignment="Top" Margin="0,50,280,0" Grid.Row="1" Name="txtChooseACountry" />
+        <ComboBox VerticalAlignment="Top" Margin="0,50,280,0" Grid.Row="1" Name="txtChooseACountry" SelectionChanged="txtChooseACountry_SelectionChanged" />
 
         <!--button-->
         <Button VerticalAlignment="Bottom" Margin="280,0,0,0" Height="35" Content="Creat" Foreground="White" Background="Black" Grid.Row="1" Name="btnReg" Click="btnReg_Click" />

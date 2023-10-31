@@ -32,7 +32,7 @@
 
         <TextBox Grid.Row="0" Grid.Column="1" FontFamily="Arial"  Margin="0 15 0 15 " Name="txtCity" VerticalContentAlignment="Center"/>
 
-        <ComboBox Grid.Row="2" Grid.Column="1" Margin="10 15 10 15" Name="CmboLand"  />
+        <ComboBox Grid.Row="2" Grid.Column="1" Margin="10 15 10 15" Name="CmboLand" SelectionChanged="CmboLand_SelectionChanged"  />
         <ComboBox Grid.Row="3" Grid.Column="1" Margin="10 15 10 15" Name="CmboTypeOfTrip" SelectionChanged="CmboMeetingDetails_SelectionChanged" />
         <ComboBox Grid.Column="1" Grid.Row="1" Margin="10 15 10 15" Name="CmboTravelers" SelectionChanged="CmboTravelers_SelectionChanged">
             <ComboBox.Items>

@@ -17,6 +17,7 @@ namespace SlutProjekt
             UpdateUi();
 
         }
+       
 
         private void btnSignOut_Click(object sender, RoutedEventArgs e)
         {

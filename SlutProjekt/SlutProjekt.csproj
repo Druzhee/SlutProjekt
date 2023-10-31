@@ -8,11 +8,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Remove="images\flying airplane.jpg" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <SplashScreen Include="images\flying airplane.jpg" />
+    <Folder Include="images\" />
   </ItemGroup>
 
 </Project>

@@ -1,6 +1,7 @@
 ﻿using SlutProjekt.Enums;
 using System;
 using System.Windows;
+using System.Windows.Controls;
 
 namespace SlutProjekt
 {
@@ -9,6 +10,7 @@ namespace SlutProjekt
     /// </summary>
     public partial class AddTravelDetails : Window
     {
+        bool CheckBox = false;
         public AddTravelDetails()
         {
             InitializeComponent();
@@ -57,14 +59,35 @@ namespace SlutProjekt
 
         private void btnAddToTravelList_Click(object sender, RoutedEventArgs e)
         {
-            bool City = txtCity.Text.Trim().Length > 0;
-            bool Travelers = CmboTravelers.SelectedItem != null;
-            bool Land = CmboLand.SelectedItem != null;
-            bool TypOfTrip = CmboTypeOfTrip.SelectedItem != null;
+            bool alliclusive = CheckBox;
+            string City = txtCity.Text;
+            int Travellers = CmboTravelers.SelectedIndex;
+            Country Land = (Country)CmboLand.SelectedItem;
+            //Country Land = 0;
+            //try
+            //{
+            //   Land = (Country)CmboLand.SelectedIndex;
+            //}
+            //catch(NullReferenceException)
+            //{
+            //    MessageBox.Show("sho");
+            //}   
+            string meetingDetails = txtMeetingdetalis.Text;
 
-            if (City && Travelers && Land && TypOfTrip)
+            if (txtCity.Text != "" && CmboTravelers.SelectedIndex > -1 && CmboLand.SelectedIndex > -1 && CmboTypeOfTrip.SelectedIndex > -1 )
             {
-                Country selectedCountry = (Country)CmboLand.SelectedItem;
+                if (CmboTypeOfTrip.SelectedIndex == 0) 
+                {
+                    WorkTrip newWorktrip = new(meetingDetails, Travellers, City, Land);
+                    TravelManager.AddTravel(newWorktrip);
+
+                }
+                else if (CmboTypeOfTrip.SelectedIndex == 1)
+                {
+                    Vacation newVacation = new(alliclusive, Travellers, City, Land);
+                    TravelManager.AddTravel(newVacation);
+
+                }
                 TravelsWindow travelsWindow = new();
                 travelsWindow.Show();
                 Close();
@@ -73,8 +96,11 @@ namespace SlutProjekt
             {
                 MessageBox.Show("incompleted form", "Warning");
             }
+        }
 
-
+        private void CmboLand_SelectionChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
+        {
+            CheckBox = true;
         }
     }
 }

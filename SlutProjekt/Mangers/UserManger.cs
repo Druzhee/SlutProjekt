@@ -27,9 +27,14 @@ namespace SlutProjekt
 
         public static bool AddUser(IUser userToAdd)
         {
+            string username = userToAdd.Username;   
             if (!ValidateUsername(userToAdd.Username))
             {
-                return false;
+               
+                
+                    return false;
+                
+               
             }
 
             Users.Add(userToAdd);

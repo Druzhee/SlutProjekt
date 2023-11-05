@@ -1,7 +1,6 @@
 ﻿using SlutProjekt.Enums;
 using System;
 using System.Windows;
-using System.Windows.Controls;
 
 namespace SlutProjekt
 {
@@ -59,42 +58,47 @@ namespace SlutProjekt
 
         private void btnAddToTravelList_Click(object sender, RoutedEventArgs e)
         {
-            bool alliclusive = CheckBox;
-            string City = txtCity.Text;
-            int Travellers = CmboTravelers.SelectedIndex;
-            Country Land = (Country)CmboLand.SelectedItem;
-            //Country Land = 0;
-            //try
-            //{
-            //   Land = (Country)CmboLand.SelectedIndex;
-            //}
-            //catch(NullReferenceException)
-            //{
-            //    MessageBox.Show("sho");
-            //}   
-            string meetingDetails = txtMeetingdetalis.Text;
-
-            if (txtCity.Text != "" && CmboTravelers.SelectedIndex > -1 && CmboLand.SelectedIndex > -1 && CmboTypeOfTrip.SelectedIndex > -1 )
+            try
             {
-                if (CmboTypeOfTrip.SelectedIndex == 0) 
-                {
-                    WorkTrip newWorktrip = new(meetingDetails, Travellers, City, Land);
-                    TravelManager.AddTravel(newWorktrip);
+                bool alliclusive = CheckBox;
+                string City = txtCity.Text;
+                int Travellers = (int)CmboTravelers.SelectedIndex + 1;
+                Country Land = (Country)CmboLand.SelectedItem;
 
-                }
-                else if (CmboTypeOfTrip.SelectedIndex == 1)
-                {
-                    Vacation newVacation = new(alliclusive, Travellers, City, Land);
-                    TravelManager.AddTravel(newVacation);
+                string meetingDetails = txtMeetingdetalis.Text;
 
+                //bool isNumeric = Regex.IsMatch(City, @"^\d+$");
+                //if (isNumeric)
+                //{
+                //    isNumeric = false;
+                //    MessageBox.Show("");
+                //}
+                //isNumeric = true;
+
+
+
+                if (txtCity.Text != "" && CmboTravelers.SelectedIndex > -1 && CmboLand.SelectedIndex > -1 && CmboTypeOfTrip.SelectedIndex > -1)
+                {
+                    if (CmboTypeOfTrip.SelectedIndex == 0)
+                    {
+                        WorkTrip newWorktrip = new(meetingDetails, Travellers, City, Land);
+                        TravelManager.AddTravel(newWorktrip);
+
+                    }
+                    else if (CmboTypeOfTrip.SelectedIndex == 1)
+                    {
+                        Vacation newVacation = new(alliclusive, Travellers, City, Land);
+                        TravelManager.AddTravel(newVacation);
+
+                    }
+                    TravelsWindow travelsWindow = new();
+                    travelsWindow.Show();
+                    Close();
                 }
-                TravelsWindow travelsWindow = new();
-                travelsWindow.Show();
-                Close();
             }
-            else
+            catch (NullReferenceException ex)
             {
-                MessageBox.Show("incompleted form", "Warning");
+                MessageBox.Show("Select country");
             }
         }
 
@@ -102,5 +106,7 @@ namespace SlutProjekt
         {
             CheckBox = true;
         }
+
+
     }
 }

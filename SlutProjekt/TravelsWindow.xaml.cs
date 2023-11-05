@@ -17,7 +17,7 @@ namespace SlutProjekt
             UpdateUi();
 
         }
-       
+
 
         private void btnSignOut_Click(object sender, RoutedEventArgs e)
         {
@@ -34,12 +34,19 @@ namespace SlutProjekt
         private void btnTravelDetails_Click(object sender, RoutedEventArgs e)
         {
             ListViewItem selectedItem = (ListViewItem)travelListView.SelectedItem;
-            Travel selectedTravel = (Travel)selectedItem.Tag;
+            if ((ListViewItem)travelListView.SelectedItem != null)
+            {
+                Travel selectedTravel = (Travel)selectedItem.Tag;
 
+                TravelDetails traveldetils = new TravelDetails(selectedTravel);
+                traveldetils.Show();
+                Close();
+            }
+            else
+            {
+                MessageBox.Show("Select a Travel");
+            }
 
-            TravelDetails traveldetils = new TravelDetails(selectedTravel);
-            traveldetils.Show();
-            Close();
         }
 
         private void btnAddTravel_Click(object sender, RoutedEventArgs e)
@@ -53,47 +60,54 @@ namespace SlutProjekt
         {
             // Hitta inloggade användaren
             IUser loggedInUser = UserManger.signedInUser;
-
-            // Är användaren User?
-            if (loggedInUser.GetType() == typeof(User))
+            if ((ListViewItem)travelListView.SelectedItem != null)
             {
-                // Casta om IUser till User
-                User user = (User)loggedInUser;
-                // Hämta vårt selectade item (resan som ska tas bort)
-                ListViewItem selectedItem = (ListViewItem)travelListView.SelectedItem;
-                // Hämta vår selectade Travel ur ITEMETS tag-property
-                Travel selectedTravel = (Travel)selectedItem.Tag;
-                // Ta bort resan från användarens lista
-                user.Travels.Remove(selectedTravel);
-                // Rensa UI-listan och uppdatera den
-                UpdateUi();
-            }
-            else if (loggedInUser.GetType() == typeof(Admin))
-            {
-                Admin Admin = (Admin)loggedInUser;
-                ListViewItem selectedItem = (ListViewItem)travelListView.SelectedItem;
-                Travel selectedTravel = (Travel)selectedItem.Tag;
 
-                // Loopa över alla users
-                // Ta bort resan 
-
-                foreach (var user in UserManger.Users)
+                // Är användaren User?
+                if (loggedInUser.GetType() == typeof(User))
                 {
-                    if (user is User)
-                    {
-                        User u = (User)user;
+                    // Casta om IUser till User
+                    User user = (User)loggedInUser;
+                    // Hämta vårt selectade item (resan som ska tas bort)
+                    ListViewItem selectedItem = (ListViewItem)travelListView.SelectedItem;
+                    // Hämta vår selectade Travel ur ITEMETS tag-property
+                    Travel selectedTravel = (Travel)selectedItem.Tag;
+                    // Ta bort resan från användarens lista
+                    user.Travels.Remove(selectedTravel);
+                    // Rensa UI-listan och uppdatera den
+                    UpdateUi();
+                }
+                else if (loggedInUser.GetType() == typeof(Admin))
+                {
+                    Admin Admin = (Admin)loggedInUser;
+                    ListViewItem selectedItem = (ListViewItem)travelListView.SelectedItem;
+                    Travel selectedTravel = (Travel)selectedItem.Tag;
 
-                        for (int i = 0; i < u.Travels.Count; i++)
+                    // Loopa över alla users
+                    // Ta bort resan 
+
+                    foreach (var user in UserManger.Users)
+                    {
+                        if (user is User)
                         {
-                            if (u.Travels[i] == selectedTravel)
+                            User u = (User)user;
+
+                            for (int i = 0; i < u.Travels.Count; i++)
                             {
-                                u.Travels.Remove(selectedTravel);
+                                if (u.Travels[i] == selectedTravel)
+                                {
+                                    u.Travels.Remove(selectedTravel);
+                                }
                             }
                         }
                     }
-                }
 
-                UpdateUi();
+                    UpdateUi();
+                }
+            }
+            else
+            {
+                MessageBox.Show("Select a travel");
             }
         }
 

@@ -12,6 +12,6 @@ namespace SlutProjekt
             Username = username;
             Password = password;
         }
-        public List<Travel> Travels { get; set; }
+        public List<Travel> Travels { get; set; } = new();
     }
 }

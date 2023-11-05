@@ -30,7 +30,7 @@
         <TextBlock Grid.Row="3" Grid.Column="0" Text="TypeOfTrip" FontSize="18" FontFamily="Arial" VerticalAlignment="Center" />
         <TextBox Grid.Row="4" Grid.Column="4" Text="Meeting Detaíls " FontSize="15" FontFamily="Arial" VerticalAlignment="Center" Visibility="Hidden" Name="txtMeetingdetalis"/>
 
-        <TextBox Grid.Row="0" Grid.Column="1" FontFamily="Arial"  Margin="0 15 0 15 " Name="txtCity" VerticalContentAlignment="Center"/>
+        <TextBox Grid.Row="0" Grid.Column="1" FontFamily="Arial"  Margin="0 15 0 15 " Name="txtCity" VerticalContentAlignment="Center" />
 
         <ComboBox Grid.Row="2" Grid.Column="1" Margin="10 15 10 15" Name="CmboLand" SelectionChanged="CmboLand_SelectionChanged"  />
         <ComboBox Grid.Row="3" Grid.Column="1" Margin="10 15 10 15" Name="CmboTypeOfTrip" SelectionChanged="CmboMeetingDetails_SelectionChanged" />
